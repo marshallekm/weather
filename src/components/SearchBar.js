@@ -1,4 +1,5 @@
 import React, {useState}  from 'react'
+const API_KEY = process.env.REACT_APP_API_KEY;
 
 export default function SearchBar (){
   const [search, setSearch] = useState(
@@ -16,11 +17,13 @@ export default function SearchBar (){
   }
 
 
-  console.log({search})
-
   const handleSubmit = (event) => {
     event.preventDefault()
-    console.log(search)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${search.city}&appid=${API_KEY}`)
+   .then((res) => res.json())
+   .then((data) => {
+    console.log(data);
+   });
   }
 
   return (
