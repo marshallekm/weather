@@ -6,10 +6,10 @@ function App() {
 // const [lat, setLat] = useState();
 // const [long, setLong] = useState();
 const API_KEY = process.env.REACT_APP_API_KEY;
-const [cities, setCities] = useState([]);
+const [cities, setCities] = useState();
 
 const addCity = (search) => {
- setCities([...cities], search)
+ setCities(search)
 };
 
 console.log(cities)
