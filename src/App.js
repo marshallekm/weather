@@ -5,24 +5,18 @@ import React, {useEffect, useState} from 'react'
 function App() {
 // const [lat, setLat] = useState();
 // const [long, setLong] = useState();
-
 const API_KEY = process.env.REACT_APP_API_KEY;
+const [cities, setCities] = useState([]);
 
-useEffect(() => {
-//   navigator.geolocation.getCurrentPosition(function(position){
-//   setLat(position.coords.latitude);
-//   setLong(position.coords.longitude);
-//   });
-// }, [lat, long]);
+const addCity = (search) => {
+ setCities([...cities], search)
+};
 
-
-
-
-})
+console.log(cities)
 
   return (
     <div className="App">
-      <SearchBar />
+      <SearchBar addCity ={addCity}/>
     </div>
   );
 }

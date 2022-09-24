@@ -1,7 +1,6 @@
 import React, {useState}  from 'react'
-const API_KEY = process.env.REACT_APP_API_KEY;
 
-export default function SearchBar (){
+export default function SearchBar ({addCity}){
   const [search, setSearch] = useState(
     {
       city: ""
@@ -16,14 +15,14 @@ export default function SearchBar (){
     }))
   }
 
-
   const handleSubmit = (event) => {
     event.preventDefault()
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${search.city}&appid=${API_KEY}`)
-   .then((res) => res.json())
-   .then((data) => {
-    console.log(data);
-   });
+    addCity(search)
+  //   fetch(`https://api.openweathermap.org/data/2.5/weather?q=${search.city}&appid=${API_KEY}&units=metric`)
+  //  .then((res) => res.json())
+  //  .then((data) => {
+  //   console.log(data);
+  //  });
   }
 
   return (
