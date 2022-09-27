@@ -18,11 +18,6 @@ export default function SearchBar ({addCity}){
   const handleSubmit = (event) => {
     event.preventDefault()
     addCity(search)
-  //   fetch(`https://api.openweathermap.org/data/2.5/weather?q=${search.city}&appid=${API_KEY}&units=metric`)
-  //  .then((res) => res.json())
-  //  .then((data) => {
-  //   console.log(data);
-  //  });
   }
 
   return (
