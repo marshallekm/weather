@@ -7,6 +7,7 @@ const API_KEY = process.env.REACT_APP_API_KEY;
 const [cities, setCities] = useState([]);
 const [lon, setLong] = useState([]);
 const [lat, setLat] = useState([]);
+const [forecast, setForecast ] = useState([]);
 
 const addCity = (search) => {
  setCities(search)
@@ -14,28 +15,29 @@ const addCity = (search) => {
 
 console.log(cities)
 
-
 useEffect(()=> {
-  fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${cities.city}&limit=${4}&appid=${API_KEY}`)
+  fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${cities.city}&limit=${4}&appid=${API_KEY}&units=metric`)
   .then((res) => res.json())
    .then((cityData) => {
     setLong(cityData[0].lon);
-     setLat(cityData[0].lat);
+    setLat(cityData[0].lat);
+   }).catch(e => {
+    console.log(e)
    });
-})
+}, [API_KEY, cities.city])
 
-console.log(lon)
-console.log(lat)
 
 useEffect(()=> {
-   fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}`)
-   .then((res) => res.json())
-   .then((data) => {
-    console.log(data);
-   });
-},);
+   fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`)
+  .then((res) => res.json())
+  .then((res) => {
+   setForecast(res.list)
+  }).catch(e => {
+    console.log(e)
+  });
+},[lat, lon, cities.city, API_KEY]);
 
-console.log(cities)
+console.log(forecast)
 
   return (
     <div className="App">
