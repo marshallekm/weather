@@ -6,10 +6,12 @@ import React, {useEffect, useState} from 'react'
 function App() {
 const API_KEY = process.env.REACT_APP_API_KEY;
 const [cities, setCities] = useState([]);
-const [lon, setLong] = useState([]);
-const [lat, setLat] = useState([]);
-const [forecast, setForecast] = useState([
-]);
+const [lat, setLat] = useState();
+const [lon, setLong] = useState();
+const [forecast, setForecast] = useState({
+  city: [],
+  weather: []
+});
 
 
 const addCity = (search) => {
@@ -25,14 +27,19 @@ useEffect(()=> {
    }).catch(e => {
     console.log(e)
    });
-}, [API_KEY, cities.city])
+},)
 
 
 useEffect(()=> {
    fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${API_KEY}`)
   .then((res) => res.json())
-  .then((res) => {
-   setForecast(res)
+  .then((json) => {
+    const forecastList = json.list;
+    forecastList.forEach(f => {
+      console.log(f)
+       setForecast(f)
+    })
+  //  setForecast(json)
   }).catch(e => {
     console.log(e)
   });
