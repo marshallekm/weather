@@ -5,8 +5,9 @@ export default function Forecast({addForecast}){
   return (
     <div className="weather-card">
      <div className="weather-temp">
-      {addForecast.map(({dt, main, weather}) => (
+      {addForecast.map(({key, dt, main, weather}) => (
         <WeatherCard
+        key ={key}
         temp= {main.temp}
         dt= {dt * 1000}
         main = {weather[0].main}

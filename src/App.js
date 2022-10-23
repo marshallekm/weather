@@ -34,20 +34,11 @@ useEffect(()=> {
    fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${API_KEY}`)
   .then((res) => res.json())
   .then((json) => {
-    const forecastListName = json.city.name + " ," + json.city.country;
+    const forecastListName = json.city.name + ", " + json.city.country;
     setPlace(forecastListName)
     // const forecastList1 = json.list.weather;
     console.log(json.list)
     setForecast(json.list)
-    // forecastList1.forEach(f => {
-    // setForecast(f.main.temp)
-    //   // f.main.temp)
-    //   console.log(f.weather[0].main)
-    //   // console.log(f.weather[0].icon)
-    //   console.log(f.weather[10].main)
-    //   // console.log(f.dt)
-    // })
-  //  setForecast(json)
   }).catch(e => {
     console.log(e)
   });
@@ -58,12 +49,10 @@ console.log(forecast)
 
   return (
     <div className="App">
+      {place}
       <SearchBar addCity ={addCity}/>
       {forecast && <Forecast addForecast={forecast}/>}
-      <WeatherCard
-
-      />
-      {place}
+      {forecast && <WeatherCard/>}
     </div>
   );
 }
