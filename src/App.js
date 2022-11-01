@@ -1,11 +1,10 @@
 import SearchBar from './components/SearchBar.js'
 import Forecast from './components/Forecast.js'
-import WeatherCard from './components/WeatherCard.js'
-import './App.css';
-import './index.css';
 import React, {useEffect, useState} from 'react'
 import AirQuality from './components/AirQuality.js';
-import AirQualityCard from './components/AirQualityCard.js';
+import Current from './components/Current.js';
+import './App.css';
+import './index.css';
 
 function App() {
 const API_KEY = process.env.REACT_APP_API_KEY;
@@ -15,6 +14,12 @@ const [lon, setLong] = useState();
 const [forecast, setForecast] = useState();
 const [place, setPlace] = useState();
 const [air, setAir] =useState([]);
+const [current, setCurrent] = useState({
+  temp:"",
+  weather: "",
+  icon: "",
+  description: ""
+});
 
 const addCity = (search) => {
  setCities(search)
@@ -31,7 +36,6 @@ useEffect(()=> {
     console.log(e)
    })
 },)
-
 
 useEffect(()=> {
    fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${API_KEY}`)
@@ -58,16 +62,29 @@ useEffect(()=> {
   })
 },[lat, lon, API_KEY])
 
-console.log(air)
+useEffect(()=> {
+  fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`)
+  .then((res)=> res.json())
+  .then((json) => {
+    console.log("render")
+  setCurrent({
+    item: json.main.temp,
+    weather: json.weather[0].main,
+    icon: json.weather[0].icon,
+    description: json.weather[0].description
+    })
+  },[API_KEY])
+}
+
+)
+
 
   return (
     <div className="App">
-      <SearchBar addCity ={addCity}/>
-      {place}
+      <SearchBar addCity ={addCity} addPlace ={place}/>
       {air && <AirQuality addAir={air}/>}
-      {air && <AirQualityCard />}
+      <Current addCurrent={current} />
       {forecast && <Forecast addForecast={forecast}/>}
-      {forecast && <WeatherCard/>}
     </div>
   );
 }

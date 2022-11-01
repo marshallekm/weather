@@ -3,7 +3,7 @@ import AirQualityCard from './AirQualityCard'
 
 export default function AirQuality({addAir}){
   return (
-    <div>
+    <div className="air-card">
       {addAir.map(({key, main,components}) => (
         <AirQualityCard
         key ={key}

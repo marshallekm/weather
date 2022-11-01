@@ -1,14 +1,14 @@
 import React from 'react'
 
-export default function WeatherCard({key, dt, icon, main, temp}){
+
+export default function WeatherCard({dt, icon, main, temp}){
  const date = new Date(dt);
 return(
-  <div className= "weather-everything">
-  <div className="weather-body">
-  <div className="weather-group">
+
+  <div className="weathers">
     <div className="weather-card" >
       <div className ="weather-date">
-       {date.toLocaleDateString()} - {date.toLocaleTimeString()}
+       {date.toLocaleDateString()}  {new Intl.DateTimeFormat("en-US", {timeStyle: 'short'}).format(date)}
      </div>
       <div className="weather-icon">
         <img src={`http://openweathermap.org/img/wn/${icon}@2x.png`} alt=""/>
@@ -20,8 +20,6 @@ return(
       {main}
      </div>
     </div>
-  </div>
-  </div>
   </div>
   )
 }

@@ -3,7 +3,6 @@ import WeatherCard from './WeatherCard'
 export default function Forecast({addForecast}){
 
   return (
-    <div className="weather-card">
      <div className="weather-temp">
       {addForecast.map(({key, dt, main, weather}) => (
         <WeatherCard
@@ -15,6 +14,5 @@ export default function Forecast({addForecast}){
         />
       ))}
      </div>
-    </div>
   )
 }

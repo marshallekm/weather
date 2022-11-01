@@ -12,10 +12,20 @@ code {
     monospace;
 }
 
-.weather-group{
+#weather-card{
 border: 1px solid black;
+display: flex;
 }
 
-.weather-body{
+.weather-temp{
+display:flex;
+}
 
+.searchbar {
+display: flex;
+justify-content: space-between;
+padding-left: 100px;
+padding-right: 100px;
+padding-top: 38px;
+align-items: center;
 }
