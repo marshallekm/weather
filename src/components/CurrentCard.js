@@ -1,19 +1,18 @@
 import React from 'react'
 
-export default function CurrentCard ({icon, temp, weather, description}){
+export default function CurrentCard ({icon, weather}){
   return (
  <div className="current-body">
-  <div classname="current-icon">
-  {icon}
+  <div className="current-icon">
+  <img src={`http://openweathermap.org/img/wn/${icon}@2x.png`} alt=""/>
   </div>
   <div className="current-temp">
-  {temp}
   </div>
   <div className="current-main">
-  {weather}
+  <div>{weather}°C</div>
   </div>
   <div className="current-description">
-  {description}
+
   </div>
 
  </div>

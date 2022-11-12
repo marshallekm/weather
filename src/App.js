@@ -13,13 +13,10 @@ const [lat, setLat] = useState();
 const [lon, setLong] = useState();
 const [forecast, setForecast] = useState();
 const [place, setPlace] = useState();
-const [air, setAir] =useState([]);
-const [current, setCurrent] = useState({
-  temp:"",
-  weather: "",
-  icon: "",
-  description: ""
-});
+const [air, setAir] = useState([]);
+const [current, setCurrent] = useState();
+const [currentIcon, setCurrentIcon] =useState("");
+const [currentWeather, setCurrentWeather] =useState("");
 
 const addCity = (search) => {
  setCities(search)
@@ -62,28 +59,29 @@ useEffect(()=> {
   })
 },[lat, lon, API_KEY])
 
+
+
+
 useEffect(()=> {
   fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`)
   .then((res)=> res.json())
-  .then((json) => {
-    console.log("render")
-  setCurrent({
-    item: json.main.temp,
-    weather: json.weather[0].main,
-    icon: json.weather[0].icon,
-    description: json.weather[0].description
-    })
-  },[API_KEY])
-}
+  .then((data) => {
+   setCurrent(data.main.temp)
+   const newIcon = data.weather[0].icon;
+   setCurrentIcon(newIcon)
+   console.log(typeof(currentIcon))
+}).catch( e => {
+  console.log(e)
+})
+},[lat, lon, API_KEY])
 
-)
 
 
   return (
     <div className="App">
       <SearchBar addCity ={addCity} addPlace ={place}/>
       {air && <AirQuality addAir={air}/>}
-      <Current addCurrent={current} />
+      {current && <Current addCurrent={current} addCurrentIcon = {currentIcon}/>}
       {forecast && <Forecast addForecast={forecast}/>}
     </div>
   );
