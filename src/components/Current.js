@@ -1,7 +1,7 @@
 import React from 'react'
 import CurrentCard from './CurrentCard'
 
-export default function Current({addCurrent, addCurrentIcon}){
+export default function Current({addCurrent, addCurrentIcon, addCurrentWeather}){
   console.log("test")
   console.log(typeof(addCurrentIcon))
   return(
@@ -9,6 +9,7 @@ export default function Current({addCurrent, addCurrentIcon}){
         <CurrentCard
         weather = {addCurrent}
         icon ={addCurrentIcon}
+        description = {addCurrentWeather}
         />
     </div>
   )

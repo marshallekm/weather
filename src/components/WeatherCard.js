@@ -3,6 +3,7 @@ import React from 'react'
 
 export default function WeatherCard({dt, icon, main, temp}){
  const date = new Date(dt);
+
 return(
 
   <div className="weathers">
@@ -13,7 +14,7 @@ return(
       <div className="weather-icon">
         <img src={`http://openweathermap.org/img/wn/${icon}@2x.png`} alt=""/>
       </div>
-     <div className= "weather-temp">
+     <div className= "weather-number">
       {temp}°C
      </div>
      <div className ="weather-main">

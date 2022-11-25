@@ -16,7 +16,7 @@ const [place, setPlace] = useState();
 const [air, setAir] = useState([]);
 const [current, setCurrent] = useState();
 const [currentIcon, setCurrentIcon] =useState("");
-const [currentWeather, setCurrentWeather] =useState("");
+const [currentWeather, setCurrentWeather] = useState("");
 
 const addCity = (search) => {
  setCities(search)
@@ -69,7 +69,8 @@ useEffect(()=> {
    setCurrent(data.main.temp)
    const newIcon = data.weather[0].icon;
    setCurrentIcon(newIcon)
-   console.log(typeof(currentIcon))
+   const newWeather = data.weather[0].description
+   setCurrentWeather(newWeather)
 }).catch( e => {
   console.log(e)
 })
@@ -80,8 +81,10 @@ useEffect(()=> {
   return (
     <div className="App">
       <SearchBar addCity ={addCity} addPlace ={place}/>
-      {air && <AirQuality addAir={air}/>}
-      {current && <Current addCurrent={current} addCurrentIcon = {currentIcon}/>}
+      <div className= "top">
+        {current && <Current addCurrent={current} addCurrentIcon = {currentIcon} addCurrentWeather ={currentWeather}/>}
+        {air && <AirQuality addAir={air}/>}
+      </div>
       {forecast && <Forecast addForecast={forecast}/>}
     </div>
   );
