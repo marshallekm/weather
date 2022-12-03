@@ -31,13 +31,13 @@ export default function AirQualityCard({aqi, pm2_5}){
   }
   return(
     <div className= "air-body">
-      <h3 className="air-title">Air Quality</h3>
+      <h3 className="air-title">Air Quality Index</h3>
       <div className= 'air-aqi'>
-       Air Quality Index {airQuality({aqi})}
+       {airQuality({aqi})}
       </div>
-      <div className= "air-pm2_5" >
+      {/* <div className= "air-pm2_5" >
        PM2.5 <span></span>{pm2_5}
-      </div>
+      </div> */}
     </div>
   )
 

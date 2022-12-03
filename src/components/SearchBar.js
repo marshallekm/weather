@@ -1,4 +1,5 @@
 import React, {useState}  from 'react'
+import SearchIcon from '../images/search.svg'
 
 export default function SearchBar ({addCity, addPlace}){
   const [search, setSearch] = useState(
@@ -23,20 +24,23 @@ export default function SearchBar ({addCity, addPlace}){
   return (
     <div className= "searchbar">
       <div className="app-name">
-       <p>Weather Friend </p>
+       <h2>Weather Friend </h2>
       </div>
-      <form action='/' method='get' onSubmit={handleSubmit}>
+      <div className="search-form">
+      <form action='/' method='get' onSubmit={handleSubmit} className="search-bar">
         <input
         type="text"
         id="searchbar"
         name="city"
+         autocomplete="off"
         onChange = {formChange}
         placeholder= "Search by city..."
         />
         <button type="submit">
-          Search
+        <img src= {SearchIcon} alt="" className="search-icon"/>
         </button>
       </form>
+      </div>
          <div className= "place">
         {addPlace}
         </div>

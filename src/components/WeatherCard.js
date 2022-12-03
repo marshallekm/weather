@@ -1,11 +1,9 @@
 import React from 'react'
 
-
 export default function WeatherCard({dt, icon, main, temp}){
  const date = new Date(dt);
 
 return(
-
   <div className="weathers">
     <div className="weather-card" >
       <div className ="weather-date">

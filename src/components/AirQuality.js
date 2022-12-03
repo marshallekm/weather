@@ -8,7 +8,7 @@ export default function AirQuality({addAir}){
         <AirQualityCard
         key ={key}
         aqi = {main.aqi}
-        pm2_5= {components.pm2_5}
+        // pm2_5= {components.pm2_5}
         />
       ))}
     </div>

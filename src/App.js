@@ -3,6 +3,8 @@ import Forecast from './components/Forecast.js'
 import React, {useEffect, useState} from 'react'
 import AirQuality from './components/AirQuality.js';
 import Current from './components/Current.js';
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
 import './App.css';
 import './index.css';
 
@@ -80,7 +82,7 @@ useEffect(()=> {
 
   return (
     <div className="App">
-      <SearchBar addCity ={addCity} addPlace ={place}/>
+      <div className = "searchBar"><SearchBar addCity ={addCity} addPlace ={place}/></div>
       <div className= "top">
         {current && <Current addCurrent={current} addCurrentIcon = {currentIcon} addCurrentWeather ={currentWeather}/>}
         {air && <AirQuality addAir={air}/>}
