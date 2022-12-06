@@ -1,7 +1,7 @@
 import React, {useState}  from 'react'
 import SearchIcon from '../images/search.svg'
 
-export default function SearchBar ({addCity, addPlace}){
+export default function SearchBar ({addCity}){
   const [search, setSearch] = useState(
     {
       city: ""
@@ -21,10 +21,12 @@ export default function SearchBar ({addCity, addPlace}){
     addCity(search)
   }
 
+
+
   return (
     <div className= "searchbar">
       <div className="app-name">
-       <h2>Weather Friend </h2>
+       <h2>WEATHER FRIEND </h2>
       </div>
       <div className="search-form">
       <form action='/' method='get' onSubmit={handleSubmit} className="search-bar">
@@ -41,9 +43,6 @@ export default function SearchBar ({addCity, addPlace}){
         </button>
       </form>
       </div>
-         <div className= "place">
-        {addPlace}
-        </div>
     </div>
   )
 }

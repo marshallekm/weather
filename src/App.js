@@ -3,8 +3,8 @@ import Forecast from './components/Forecast.js'
 import React, {useEffect, useState} from 'react'
 import AirQuality from './components/AirQuality.js';
 import Current from './components/Current.js';
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from 'react-responsive-carousel';
+import Greetings from './components/Greetings.js'
+import Frontpage from './components/Frontpage.js'
 import './App.css';
 import './index.css';
 
@@ -14,7 +14,7 @@ const [cities, setCities] = useState([]);
 const [lat, setLat] = useState();
 const [lon, setLong] = useState();
 const [forecast, setForecast] = useState();
-const [place, setPlace] = useState();
+const [place, setPlace] = useState("");
 const [air, setAir] = useState([]);
 const [current, setCurrent] = useState();
 const [currentIcon, setCurrentIcon] =useState("");
@@ -62,8 +62,6 @@ useEffect(()=> {
 },[lat, lon, API_KEY])
 
 
-
-
 useEffect(()=> {
   fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`)
   .then((res)=> res.json())
@@ -83,7 +81,9 @@ useEffect(()=> {
   return (
     <div className="App">
       <div className = "searchBar"><SearchBar addCity ={addCity} addPlace ={place}/></div>
+      {forecast ? "" : <Frontpage />}
       <div className= "top">
+        {forecast && <Greetings addPlace={place}/>}
         {current && <Current addCurrent={current} addCurrentIcon = {currentIcon} addCurrentWeather ={currentWeather}/>}
         {air && <AirQuality addAir={air}/>}
       </div>

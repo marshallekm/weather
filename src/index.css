@@ -32,27 +32,36 @@ margin: 80px;
 
 .good {
 color:#40c507;
-font-size:38px;
+font-size:24px;
+display:  inline-grid;
 }
 
 .fair {
 color: #95c507;
-font-size:38px;
+font-size:24px;
+display:  inline-grid;
 }
 
 .moderate{
 color:#f6f609;
-font-size:38px;
+font-size:24px;
+display:  inline-grid;
 }
 
 .poor{
 color:#f68009;
-font-size:38px;
+font-size:24px;
+display:  inline-grid;
 }
 
 .very-poor{
 color:#f60909;
-font-size:38px;
+font-size:24px;
+display:  inline-grid;
+}
+
+.good img, .fair img, .moderate img, .poor img, .very-poor img {
+  height:90px;
 }
 
 
@@ -67,9 +76,8 @@ align-items: center;
 
 .top {
 display: flex;
-justify-content: space-around;
-padding-top: 100px;
-padding-bottom: 100px;
+justify-content: space-evenly;
+padding-top:20px;
 }
 
 .current-temp{
@@ -80,7 +88,10 @@ padding-bottom: 100px;
   padding: 48px;
   border-radius: 12px;
   position:relative;
+  height:100px;
 }
+
+
 
 .current-title{
   position:absolute;
@@ -100,7 +111,6 @@ padding-top: 38px;
   padding-left: 48px;
   padding-right: 48px;
   border-radius: 12px;
-  padding-bottom: 78px;
 }
 
 .air-title{
@@ -140,7 +150,7 @@ border-radius: 60px;
 padding:10px 20px;
 display:flex;
 align-items:center;
-height: 38px;
+height: 28px;
 }
 
 .search-bar{
@@ -166,16 +176,22 @@ padding:10px 20px;
 }
 
 button{
-    width: 45px;
-    height:40px;
+    width: 35px;
+    height:30px;
     border-radius: 50%;
     border: none;
     padding: 0px;
     text-align:center;
-    left: 25px;
+    left: 29px;
     position: relative;
 }
 
 .search-icon{
- height:20px;
+ height:18px;
+}
+
+.greeting {
+align-items: center;
+padding-top:24px;
+height:100px;
 }
