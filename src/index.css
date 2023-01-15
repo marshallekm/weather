@@ -131,7 +131,7 @@ padding-top: 38px;
 .App {
   margin-left: 0px;
   margin-right: 0px;
-  margin-bottom: 48px;
+   min-height: 100vh;
   color: #1C2555;
   font-family: 'Poppins', sans-serif;
 }
@@ -194,4 +194,8 @@ button{
 align-items: center;
 padding-top:24px;
 height:100px;
+}
+
+.home {
+height:100%;
 }

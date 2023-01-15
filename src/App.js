@@ -4,7 +4,7 @@ import React, {useEffect, useState} from 'react'
 import AirQuality from './components/AirQuality.js';
 import Current from './components/Current.js';
 import Greetings from './components/Greetings.js'
-import Frontpage from './components/Frontpage.js'
+// import Frontpage from './components/Frontpage.js'
 import './App.css';
 import './index.css';
 
@@ -25,7 +25,7 @@ const addCity = (search) => {
 };
 
 useEffect(()=> {
-  fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${cities.city}&limit=${4}&appid=${API_KEY}&units=metric`)
+  fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${cities.city}&limit=${4}&appid=${API_KEY}&units=metric`)
   .then((res) => res.json())
   .then((cityData) => {
     setLat(cityData[0].lat);
@@ -37,7 +37,7 @@ useEffect(()=> {
 },)
 
 useEffect(()=> {
-   fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${API_KEY}`)
+   fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${API_KEY}`)
   .then((res) => res.json())
   .then((json) => {
     const forecastListName = `${json.city.name}, ${json.city.country}`
@@ -51,7 +51,7 @@ useEffect(()=> {
 },[lat, lon, API_KEY]);
 
 useEffect(()=> {
-  fetch(`http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${API_KEY}`)
+  fetch(`https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${API_KEY}`)
   .then((res) => res.json())
   .then((json) => {
    console.log(json.list)
@@ -81,7 +81,7 @@ useEffect(()=> {
   return (
     <div className="App">
       <div className = "searchBar"><SearchBar addCity ={addCity} addPlace ={place}/></div>
-      {forecast ? "" : <Frontpage />}
+      {/* <div className="home">{forecast ? "" : <Frontpage />}</div> */}
       <div className= "top">
         {forecast && <Greetings addPlace={place}/>}
         {current && <Current addCurrent={current} addCurrentIcon = {currentIcon} addCurrentWeather ={currentWeather}/>}
