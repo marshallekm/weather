@@ -25,9 +25,7 @@ const addCity = (search) => {
 };
 
 useEffect(()=> {
-  fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${cities.city}&limit=${4}&appid=${API_KEY}&units=metric` {
-      referrerPolicy: "unsafe_url"
-  })
+  fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${cities.city}&limit=${4}&appid=${API_KEY}&units=metric`)
   .then((res) => res.json())
   .then((cityData) => {
     setLat(cityData[0].lat);
@@ -39,9 +37,7 @@ useEffect(()=> {
 },)
 
 useEffect(()=> {
-  fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${API_KEY}`{
-      referrerPolicy: "unsafe_url"
-  })
+   fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${API_KEY}`)
   .then((res) => res.json())
   .then((json) => {
     const forecastListName = `${json.city.name}, ${json.city.country}`
@@ -55,9 +51,7 @@ useEffect(()=> {
 },[lat, lon, API_KEY]);
 
 useEffect(()=> {
-  fetch(`https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${API_KEY}`{
-      referrerPolicy: "unsafe_url"
-  })
+  fetch(`https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${API_KEY}`)
   .then((res) => res.json())
   .then((json) => {
    console.log(json.list)
@@ -69,9 +63,7 @@ useEffect(()=> {
 
 
 useEffect(()=> {
-  fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`{
-      referrerPolicy: "unsafe_url"
-  })
+  fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`)
   .then((res)=> res.json())
   .then((data) => {
    setCurrent(data.main.temp)
