@@ -3,7 +3,6 @@ import React from 'react'
 export default function CurrentCard ({icon, weather, description}){
   return (
  <div className="current-body">
-  <h3 className="current-title"></h3>
   <div className="current-icon">
   <img src={`https://openweathermap.org/img/wn/${icon}@2x.png`} alt=""/>
   </div>
