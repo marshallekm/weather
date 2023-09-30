@@ -37,6 +37,7 @@ useEffect(()=> {
 },)
 
 useEffect(()=> {
+    if (lat !== null && lon !== null) { {}
    fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=metric&appid=${API_KEY}`)
   .then((res) => res.json())
   .then((json) => {
@@ -48,6 +49,7 @@ useEffect(()=> {
   }).catch(e => {
     console.log(e)
   });
+}
 },[lat, lon, API_KEY]);
 
 useEffect(()=> {
