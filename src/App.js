@@ -11,12 +11,12 @@ import './index.css';
 function App() {
 const API_KEY = process.env.REACT_APP_API_KEY;
 const [cities, setCities] = useState([]);
-const [lat, setLat] = useState();
-const [lon, setLong] = useState();
-const [forecast, setForecast] = useState();
+const [lat, setLat] = useState(null);
+const [lon, setLong] = useState(null);
+const [forecast, setForecast] = useState(null);
 const [place, setPlace] = useState("");
 const [air, setAir] = useState([]);
-const [current, setCurrent] = useState();
+const [current, setCurrent] = useState(null);
 const [currentIcon, setCurrentIcon] =useState("");
 const [currentWeather, setCurrentWeather] = useState("");
 
@@ -81,7 +81,6 @@ useEffect(()=> {
   return (
     <div className="App">
       <div className = "searchBar"><SearchBar addCity ={addCity} addPlace ={place}/></div>
-      {/* <div className="home">{forecast ? "" : <Frontpage />}</div> */}
       <div className= "top">
         {forecast && <Greetings addPlace={place}/>}
         {current && <Current addCurrent={current} addCurrentIcon = {currentIcon} addCurrentWeather ={currentWeather}/>}
