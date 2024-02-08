@@ -24,8 +24,9 @@ justify-content: space-between;
 overflow-y: scroll;
   /* scrollbar-width: none;
   -ms-overflow-style: none; */
-margin: 80px;
+margin: 90px;
 }
+
 
 /* .weather-temp::-webkit-scrollbar {
   display: none;
@@ -89,7 +90,7 @@ background-color: white;
 .top {
 display: flex;
 justify-content: space-evenly;
-padding-top:20px;
+/* padding-top:20px; */
 }
 
 .current-temp{
@@ -212,6 +213,138 @@ padding-top:24px;
 height:100px;
 }
 
-.home {
+/* .home {
 height:1000px;
+} */
+
+.sun {
+  width: 1000px;
+}
+
+.scroll-instruction{
+    top: 372px;
+    position: absolute;
+    left: 112px;
+}
+.bottom{
+  display: block;
+}
+
+@media screen and (max-width: 700px){
+  .sun {
+  width: 450px;
+  margin: -90px;
+  margin-top: 40px;
+}
+
+.weather-temp{
+display:flex;
+align-items: center;
+justify-content: space-between;
+overflow-y: scroll;
+  /* scrollbar-width: none;
+  -ms-overflow-style: none; */
+margin: 30px;
+}
+
+.scroll-instruction{
+position: relative;
+top:10px;
+left:-10px;
+}
+
+.greeting{
+font-size: 15px;
+}
+
+.top{
+  display: inline-block ;
+}
+
+.current-temp{
+  margin-left:0px;
+}
+
+
+.searchBar{
+  font-size: small;
+  margin: -30px;
+}
+
+.search-bar input {
+  font-size: 11px;
+}
+.search-form{
+max-width:130px;
+margin-left: 30px;
+}
+}
+/* Small device (portrait tablets and large phones, 600px and up) */
+/* @media screen and (min-width: 400px) and (max-whttp://localhost:3000/static/media/sun.3330e5d6d233fb90663a.gifidth: 868px){
+
+
+.search-bar input {
+  font-size: 13px;
+}
+
+  .sun {
+  width: 700px;
+  margin: -90px;
+  margin-top: 40px;
+}
+.greeting{
+font-size: 15px;
+}
+
+.top{
+  display: inline-block ;
+}
+
+.current-temp{
+  margin-left:40px;
+}
+
+.searchBar{
+  font-size: small;
+}
+
+.search-form{
+max-width:150px;
+}
+
+.scroll-instruction{
+position: relative;
+top:10px;
+left:-5px;
+}
+
+.weather-temp{
+display:flex;
+align-items: center;
+justify-content: space-between;
+overflow-y: scroll;
+  /* scrollbar-width: none;
+  -ms-overflow-style: none; */
+/* width: 70%;
+} */
+
+/* Media devices (landscape tablets, 768px and up) */
+@media screen and (max-width: 800px){
+  .searchBar{
+  font-size: small;
+}
+
+.search-form{
+max-width:150px;
+}
+
+
+}
+/* Large devices (laptops/desktop, 992px and up) */
+@media screen and (min-width: 992px){
+
+}
+/* Extra large devices (large laptops and desktop, 1200px and up */
+@media screen and (min-width: 1200px){
+
 }

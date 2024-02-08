@@ -4,7 +4,7 @@ import React, {useEffect, useState} from 'react'
 import AirQuality from './components/AirQuality.js';
 import Current from './components/Current.js';
 import Greetings from './components/Greetings.js'
-// import Frontpage from './components/Frontpage.js'
+import Frontpage from './components/Frontpage.js'
 import './App.css';
 import './index.css';
 
@@ -19,9 +19,11 @@ const [air, setAir] = useState([]);
 const [current, setCurrent] = useState(null);
 const [currentIcon, setCurrentIcon] =useState("");
 const [currentWeather, setCurrentWeather] = useState("");
+const [front, setFront] =useState(false);
 
 const addCity = (search) => {
  setCities(search)
+ setFront(true)
 };
 
 useEffect(()=> {
@@ -83,13 +85,16 @@ useEffect(()=> {
   return (
     <div className="App">
       <div className = "searchBar"><SearchBar addCity ={addCity} addPlace ={place}/></div>
-      <div className= "top">
+  <div className="information">
+  <div className= "top">
+    {front === false? <Frontpage/> : null}
         {forecast && <Greetings addPlace={place}/>}
         {current && <Current addCurrent={current} addCurrentIcon = {currentIcon} addCurrentWeather ={currentWeather}/>}
         {air && <AirQuality addAir={air}/>}
       </div>
       {forecast && <Forecast addForecast={forecast}/>}
     </div>
+  </div>
   );
 }
 

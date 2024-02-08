@@ -1,7 +1,10 @@
-import Spline from '@splinetool/react-spline';
 
-// export default function App() {
-//   return (
-//     <Spline scene="https://prod.spline.design/53LzrabnHcuJXkzg/scene.splinecode" />
-//   );
-// }
+import Sun from "../images/sun.gif"
+
+export default function App() {
+  return (
+    <div>
+      <img src={Sun} alt="gif" className="sun"/>
+    </div>
+  );
+}

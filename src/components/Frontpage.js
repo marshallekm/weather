@@ -3,7 +3,7 @@ import Spline from './Spline'
 
 export default function Frontpage () {
   return (
-    <div>
+    <div className="front">
     <Spline />
     </div>
   )
